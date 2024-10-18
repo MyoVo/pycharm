@@ -1,0 +1,139 @@
+SVM
+最佳参数： OrderedDict([('C', 4.7290805470559185), ('gamma', 0.4466278825224283), ('kernel', 'rbf')])
+              precision  recall  f1-score  support
+0                0.9259  0.8621    0.8929 174.0000
+1                0.8322  0.8561    0.8440 139.0000
+2                0.9262  0.9388    0.9324 147.0000
+3                0.9371  0.9739    0.9551 153.0000
+accuracy         0.9070  0.9070    0.9070   0.9070
+macro avg        0.9053  0.9077    0.9061 613.0000
+weighted avg     0.9075  0.9070    0.9068 613.0000
+准确率：0.9070
+Kappa系数：0.8759
+
+XGB
+最佳参数： OrderedDict([('learning_rate', 0.1692504891932796), ('max_depth', 1), ('n_estimators', 500), ('reg_alpha', 0.0003384133704306085), ('reg_lambda', 8.187012670469005e-06)])
+             precision recall f1-score  support
+0               0.9349 0.9080   0.9213 174.0000
+1               0.8819 0.9137   0.8975 139.0000
+2               0.9592 0.9592   0.9592 147.0000
+3               0.9739 0.9739   0.9739 153.0000
+accuracy        0.9380 0.9380   0.9380   0.9380
+macro avg       0.9375 0.9387   0.9380 613.0000
+weighted avg    0.9384 0.9380   0.9381 613.0000
+准确率：0.9380
+Kappa系数：0.9172
+
+RF
+最佳参数： OrderedDict([('max_depth', 13), ('min_samples_leaf', 3), ('min_samples_split', 5), ('n_estimators', 269)])
+分类报告：
+               precision    recall  f1-score   support
+
+           0     0.9394    0.8908    0.9145       174
+           1     0.8611    0.8921    0.8763       139
+           2     0.9396    0.9524    0.9459       147
+           3     0.9613    0.9739    0.9675       153
+
+    accuracy                         0.9266       613
+   macro avg     0.9253    0.9273    0.9261       613
+weighted avg     0.9272    0.9266    0.9266       613
+
+准确率： 0.9266
+Kappa系数： 0.902
+
+MLP
+Best Parameters: OrderedDict([('activation', 'relu'), ('alpha', 0.008418419486215141), ('hidden_layer_sizes', 497), ('solver', 'adam')])
+Best Score: 0.8815892491966111
+MLP Model Accuracy: 0.8907014681892332
+AUC: 0.9604427503850375
+Precision: 0.8933239500470125
+Recall: 0.8907014681892332
+F1 Score: 0.8913139868284543
+Kappa: 0.8541404010952521
+测试集准确率： 0.8907014681892332
+测试集AUC： 0.9604427503850375
+测试集Precision： 0.8933239500470125
+测试集Recall： 0.8907014681892332
+测试集F1 Score： 0.8913139868284543
+测试集Kappa： 0.8541404010952521
+
+DNDT
+最佳参数： OrderedDict([('batch_size', 32), ('learning_rate', 0.0024505706365593586), ('num_trees', 7), ('tree_depth', 1)])
+20/20 [==============================] - 0s 806us/step
+分类报告：
+               precision    recall  f1-score   support
+
+      Foetus     0.9128    0.9252    0.9189       147
+       Prone     0.9423    0.9608    0.9515       153
+        Side     0.8472    0.8777    0.8622       139
+      Supine     0.8963    0.8448    0.8698       174
+
+    accuracy                         0.9005       613
+   macro avg     0.8997    0.9021    0.9006       613
+weighted avg     0.9006    0.9005    0.9002       613
+
+准确率： 0.9005
+Kappa系数：0.8671
+最佳参数： OrderedDict([('batch_size', 32), ('learning_rate', 0.0024505706365593586), ('num_trees', 7), ('tree_depth', 1)])
+
+Tabnet
+
+Best parameters: [9, 1.0, 1.2556027561261109e-05]
+Best validation loss: 0.36710458993911743
+[TabNet]: 96 features will be used for decision steps.
+20/20 [==============================] - 2s 9ms/step
+Final model accuracy: 0.9037520391517129
+分类报告：
+               precision    recall  f1-score   support
+
+      Foetus     0.9267    0.9456    0.9360       147
+       Prone     0.9487    0.9673    0.9579       153
+        Side     0.8357    0.8417    0.8387       139
+      Supine     0.8982    0.8621    0.8798       174
+
+    accuracy                         0.9038       613
+   macro avg     0.9023    0.9042    0.9031       613
+weighted avg     0.9035    0.9038    0.9035       613
+
+Kappa系数：0.8714
+
+
+stacking
+20/20 [==============================] - 0s 571us/step
+XGBoost 基模型的准确率: 0.9396
+DNDT 基模型的准确率: 0.9070
+SVM 基模型的准确率: 0.9070
+最佳参数: {'C': 10, 'penalty': 'l2', 'solver': 'liblinear'}
+16/16 [==============================] - 0s 552us/step
+16/16 [==============================] - 0s 526us/step
+16/16 [==============================] - 0s 609us/step
+16/16 [==============================] - 0s 572us/step
+16/16 [==============================] - 0s 513us/step
+20/20 [==============================] - 0s 634us/step
+Stacking 模型的准确率: 0.9462
+Stacking 模型的Kappa系数: 0.9281
+Stacking 模型的分类报告:
+              precision    recall  f1-score   support
+
+      Foetus       0.97      0.97      0.97       147
+       Prone       0.98      0.98      0.98       153
+        Side       0.90      0.91      0.91       139
+      Supine       0.94      0.93      0.93       174
+
+    accuracy                           0.95       613
+   macro avg       0.95      0.95      0.95       613
+weighted avg       0.95      0.95      0.95       613
+
+
+ELM
+最佳参数： OrderedDict([('activation_func', 'tanh'), ('n_neurons', 222)])
+              precision  recall  f1-score  support
+0                0.9152  0.8678    0.8909 174.0000
+1                0.8356  0.8777    0.8561 139.0000
+2                0.9189  0.9252    0.9220 147.0000
+3                0.9351  0.9412    0.9381 153.0000
+accuracy         0.9021  0.9021    0.9021   0.9021
+macro avg        0.9012  0.9030    0.9018 613.0000
+weighted avg     0.9030  0.9021    0.9023 613.0000
+准确率：0.9021
+Kappa系数：0.8693
